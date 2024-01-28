@@ -10,7 +10,7 @@ info:
   version: 1.0.0
 servers:
   - description: SwaggerHub API Auto Mocking
-    url: https://localhost/api/
+    url: https://localhost/api
 tags:
   - description: Operations available to all users
     name: users
