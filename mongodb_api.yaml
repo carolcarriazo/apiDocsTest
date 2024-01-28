@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   contact:
-    email: guillaume@villena.me
+    email: carolcarriazo@gmail.com
   description: Generic REST API for mongodb
   license:
     name: Apache 2.0
