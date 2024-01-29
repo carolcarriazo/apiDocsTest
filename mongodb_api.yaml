@@ -1,23 +1,24 @@
 openapi: 3.0.0
 info:
-  title: Ops Manager API for Mongod Process Management
+  title: Ops Manager Automation Configuration
   version: 1.0.0
-  description: API documentation for managing mongod processes via the Ops Manager API.
+  description: Retrieving and updating Automation Configuration with the Ops Manager API.
 servers:
   - description: SwaggerHub API Auto Mocking
     url: https://localhost/api
 paths:
-  /groups/{projectId}/automationConfig:
+  /groups/{PROJECT-ID}/automationConfig:
     get:
       operationId: getAutomationConfig
       summary: Get Automation Configuration
+      description: Retrieve the automation configuration for a specific project.
       tags:
-        - Automation Config
+        - Automation Configuration
       parameters:
         - name: projectId
           in: path
           required: true
-          description: The ID of the project for which to retrieve the automation configuration.
+          description: Unique identifier of the group that owns the automation configuration.
           schema:
             type: string
       responses:
@@ -52,12 +53,12 @@ paths:
       operationId: updateAutomationConfig
       summary: Update Automation Configuration
       tags:
-        - Automation Config
+        - Automation Configuration
       parameters:
         - name: projectId
           in: path
           required: true
-          description: The ID of the project for which to update the automation configuration.
+          description: Unique identifier of the group that owns the automation configuration.
           schema:
             type: string
       requestBody:
