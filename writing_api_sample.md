@@ -10,19 +10,19 @@ Setting this parameter to a specific timestamp prompts the Ops Manager to force 
 
 The basic steps include:
 
-1. Generating API keys for your Ops Manager deployment.
-2. Retrieving the automation configuration for the project.
-3. Modifying the automation configuration by adding the `lastRestart` parameter to the processes array.
-4. Confirming the status of the mongod process through the **Ops Manager Activity Feed** or by executing `ps -ef |grep mongo` on the host.
-5. Noting that the `lastRestart` parameter will no longer be visible after the completion of the restart.
+1. Generate API keys for your Ops Manager deployment.
+2. Retrieve the automation configuration for the project.
+3. Modify the automation configuration by adding the `lastRestart` parameter to the processes array.
+4. Confirm the status of the mongod process through the **Ops Manager Activity Feed** or by executing `ps -ef |grep mongo` on the host.
+5. Note that the `lastRestart` parameter will no longer be visible after the completion of the restart.
 
-## Detailed Steps
+## Steps
 
 Remember, the API key, Ops Manager URL, and other details in this example are from a test environment. Substitute these values with the correct ones from your Ops Manager deployment.
 
 1. **Generate an API Key:** Navigate to **Project** > **Access Manager** -> **Project Access** -> **API Keys** > **Create API Keys** in your Ops Manager project. Remember to store the public / private key pair safely.
 
-2. **Retrieve Automation Configuration:** Use the Get the Automation Configuration endpoint to obtain the project's Automation configuration and save it as a JSON file, typically named `currentAutomationConfig.json`.
+2. **Retrieve Automation Configuration:** Use the [Get the Automation Configuration endpoint](https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/get-automation-config/) to obtain the project's automation configuration and save it as a JSON file, typically named `currentAutomationConfig.json`.
 
    Example request:
 
