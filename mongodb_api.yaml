@@ -27,20 +27,21 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AutomationConfig'
-              examples:
-              getRequestExample:
-                  summary: Example GET request for Automation Configuration
-                  value: |
-                    curl --user "{publicApiKey}:{privateApiKey}" --digest \
-                    --header "Accept: application/json" \
-                    --request GET \
-                    "https://<OpsManagerHost>:<Port>/api/public/v1.0/groups/"
-                getResponseExample:
-                    summary: Example response for a successful GET request
-                    value: |
-                      % Total  % Received % Xferd Average Speed Time Time  Time Current Dload Upload Total Spent Left Speed 
-                      100 106 100 106  0  0 33576 0 35333 
-                      100 1393k 0 1393k 0 0 29.1M 0 29.1M 
+              ...
+      examples:
+        getRequestExample:
+          summary: Example GET request for Automation Configuration
+          value: |
+            curl --user "{publicApiKey}:{privateApiKey}" --digest \
+            --header "Accept: application/json" \
+            --request GET \
+            "https://<OpsManagerHost>:<Port>/api/public/v1.0/groups/"
+          getResponseExample:
+            summary: Example response for a successful GET request
+            value: |
+              % Total  % Received % Xferd Average Speed Time Time  Time Current Dload Upload Total Spent Left Speed 
+              100 106 100 106  0  0 33576 0 35333 
+              100 1393k 0 1393k 0 0 29.1M 0 29.1M 
         '401':
           description: Unauthorized access.
         '500':
