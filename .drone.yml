@@ -12,3 +12,7 @@ steps:
       - pip install markdownlint-cli
       - markdownlint **/*.md
       - vale **/*.md
+  trigger:
+  branch:
+    - main
+    - test
