@@ -25,13 +25,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/AutomationConfig'
               examples:
-                getRequestExample:
-                  summary: Example GET request for Automation Configuration
-                  value: |
-                    curl --user "{publicApiKey}:{privateApiKey}" --digest \
-                    --header "Accept: application/json" \
-                    --request GET \
-                    "https://<OpsManagerHost>:<Port>/api/public/v1.0/groups/"
                 getResponseExample:
                   summary: Example response for a successful GET request
                   value: |
@@ -44,6 +37,14 @@ paths:
           description: Server error.
       security:
         - ApiKeyAuth: []
+      x-examples:
+        getRequestExample:
+          summary: Example GET request for Automation Configuration
+          value: |
+            curl --user "{publicApiKey}:{privateApiKey}" --digest \
+            --header "Accept: application/json" \
+            --request GET \
+            "https://<OpsManagerHost>:<Port>/api/public/v1.0/groups/"
     put:
       operationId: updateAutomationConfig
       summary: Update Automation Configuration
@@ -72,27 +73,32 @@ paths:
                   --include --request PUT \
                   "https://<OpsManagerHost>:<Port>/api/public/v1" \
                   --data-binary "@/Users/admin/currentAutomationConfig_updated.json"
-              putResponseExample:
-                summary: Example response for a successful PUT request
-                value: |
-                  HTTP/1.1 401 Unauthorized 
-                  WWW-Authenticate: Digest realm="MMS Public API", domain="", 
-                  Content-Length: 0 
-                  HTTP/1.1 100 Continue 
-                  nonce="JuwM4w52 
-                  HTTP/1.1 200 OK 
-                  Date: Tue, 05 Sep 2023 06:35:03 GMT 
-                  Strict-Transport-Security: max-age=0; includeSubdomains; 
-                  Referrer-Policy: strict-origin-when-cross-origin 
-                  X-Permitted-Cross-Domain-Policies: none 
-                  X-Content-Type-Options: nosniff 
-                  X-MongoDB-Service-Version: gitHash=e6efff793e3f0ff2fb7daa51d70306934dced894; 
-                  Content-Type: application/json 
-                  X-Frame-Options: DENY 
-                  Content-Length: 2
       responses:
         '200':
           description: Successful update of the automation configuration.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AutomationConfig'
+              examples:
+                putResponseExample:
+                  summary: Example response for a successful PUT request
+                  value: |
+                    HTTP/1.1 401 Unauthorized 
+                    WWW-Authenticate: Digest realm="MMS Public API", domain="", 
+                    Content-Length: 0 
+                    HTTP/1.1 100 Continue 
+                    nonce="JuwM4w52 
+                    HTTP/1.1 200 OK 
+                    Date: Tue, 05 Sep 2023 06:35:03 GMT 
+                    Strict-Transport-Security: max-age=0; includeSubdomains; 
+                    Referrer-Policy: strict-origin-when-cross-origin 
+                    X-Permitted-Cross-Domain-Policies: none 
+                    X-Content-Type-Options: nosniff 
+                    X-MongoDB-Service-Version: gitHash=e6efff793e3f0ff2fb7daa51d70306934dced894; 
+                    Content-Type: application/json 
+                    X-Frame-Options: DENY 
+                    Content-Length: 2
         '401':
           description: Unauthorized access.
         '500':
