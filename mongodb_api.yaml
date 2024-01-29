@@ -3,6 +3,9 @@ info:
   title: Ops Manager API for Mongod Process Management
   version: 1.0.0
   description: API documentation for managing mongod processes via the Ops Manager API.
+servers:
+  - description: SwaggerHub API Auto Mocking
+    url: https://localhost/api
 paths:
   /groups/{projectId}/automationConfig:
     get:
@@ -25,6 +28,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/AutomationConfig'
               examples:
+              getRequestExample:
+                  summary: Example GET request for Automation Configuration
+                  value: |
+                    curl --user "{publicApiKey}:{privateApiKey}" --digest \
+                    --header "Accept: application/json" \
+                    --request GET \
+                    "https://<OpsManagerHost>:<Port>/api/public/v1.0/groups/"
                 getResponseExample:
                   summary: Example response for a successful GET request
                   value: |
