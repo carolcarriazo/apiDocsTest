@@ -1,0 +1,47 @@
+pipeline:
+  name: Markdownlint
+  identifier: Markdownlint
+  projectIdentifier: default_project
+  orgIdentifier: default
+  tags: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: account.Github_OAuth_1706500759955
+        repoName: carolcarriazo/checkoutTest
+        build: <+input>
+  stages:
+    - stage:
+        name: Build
+        identifier: Build
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Cloud
+            spec: {}
+          execution:
+            steps:
+              - step:
+                  type: Run
+                  name: Setup Python Environment and Install Dependencies
+                  identifier: setup_python
+                  image: python:3.11
+                  spec:
+                    shell: Bash
+                    command: |
+                      python --version  # Confirm Python version
+              - step:
+                  type: Run
+                  name: Install and Run Markdownlint
+                  identifier: markdown_linting
+                  image: node:18-alpine
+                  spec:
+                    shell: Bash
+                    command: |
+                      npm install -g markdownlint-cli --loglevel=error  # Only log errors, suppress warnings
+                      markdownlint '**/*.md'  # Run markdownlint on all markdown files
