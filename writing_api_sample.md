@@ -14,7 +14,7 @@ The basic steps include:
 2. Retrieve the automation configuration for the project.
 3. Modify the automation configuration by adding the `lastRestart` parameter to the processes array.
 4. Confirm the status of the mongod process through the **Ops Manager Activity Feed** or by executing `ps -ef |grep mongo` on the host.
-5. Noting that the `lastRestart` parameter will no longer be visible after the completion of the restart.
+5. Note that the `lastRestart` parameter will no longer be visible after the completion of the restart.
 
 ## Steps
 
