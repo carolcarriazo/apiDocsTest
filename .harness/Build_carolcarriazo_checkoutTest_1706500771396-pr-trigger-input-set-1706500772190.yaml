@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_carolcarriazo_checkoutTest_1706500771396-pr-trigger-input-set
+  identifier: Build_carolcarriazo_checkoutTest_1706500771396prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: default_project
+  pipeline:
+    identifier: Build_carolcarriazo_checkoutTest_1706500771396
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
