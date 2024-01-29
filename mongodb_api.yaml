@@ -25,9 +25,19 @@ paths:
               schema:
                 $ref: '#/components/schemas/AutomationConfig'
               examples:
-                getResponse:
-                  value: 
-                    lastRestart: "2023-07-13T17:45:00+05:30"
+                getRequestExample:
+                  summary: Example GET request for Automation Configuration
+                  value: |
+                    curl --user "{publicApiKey}:{privateApiKey}" --digest \
+                    --header "Accept: application/json" \
+                    --request GET \
+                    "https://<OpsManagerHost>:<Port>/api/public/v1.0/groups/"
+                getResponseExample:
+                  summary: Example response for a successful GET request
+                  value: |
+                    % Total  % Received % Xferd Average Speed Time Time  Time Current Dload Upload Total Spent Left Speed 
+                    100 106 100 106  0  0 33576 0 35333 
+                    100 1393k 0 1393k 0 0 29.1M 0 29.1M 
         '401':
           description: Unauthorized access.
         '500':
@@ -53,9 +63,33 @@ paths:
             schema:
               $ref: '#/components/schemas/AutomationConfig'
             examples:
-              putRequest:
-                value:
-                  lastRestart: "2023-07-13T17:45:00+05:30"
+              putRequestExample:
+                summary: Example PUT request for updating Automation Configuration
+                value: |
+                  curl --user "{PUBLIC-KEY}:{PRIVATE-KEY}" --digest \
+                  --header "Accept: application/json" \
+                  --header "Content-Type: application/json" \
+                  --include --request PUT \
+                  "https://<OpsManagerHost>:<Port>/api/public/v1" \
+                  --data-binary "@/Users/admin/currentAutomationConfig_updated.json"
+              putResponseExample:
+                summary: Example response for a successful PUT request
+                value: |
+                  HTTP/1.1 401 Unauthorized 
+                  WWW-Authenticate: Digest realm="MMS Public API", domain="", 
+                  Content-Length: 0 
+                  HTTP/1.1 100 Continue 
+                  nonce="JuwM4w52 
+                  HTTP/1.1 200 OK 
+                  Date: Tue, 05 Sep 2023 06:35:03 GMT 
+                  Strict-Transport-Security: max-age=0; includeSubdomains; 
+                  Referrer-Policy: strict-origin-when-cross-origin 
+                  X-Permitted-Cross-Domain-Policies: none 
+                  X-Content-Type-Options: nosniff 
+                  X-MongoDB-Service-Version: gitHash=e6efff793e3f0ff2fb7daa51d70306934dced894; 
+                  Content-Type: application/json 
+                  X-Frame-Options: DENY 
+                  Content-Length: 2
       responses:
         '200':
           description: Successful update of the automation configuration.
