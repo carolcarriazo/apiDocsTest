@@ -1,0 +1,22 @@
+inputSet:
+  pipeline:
+    identifier: Markdownlint
+    properties:
+      ci:
+        codebase:
+          build:
+            spec:
+              branch: <+trigger.targetBranch>
+            type: branch
+    object Object: properties.ci.codebase
+  name: trigger target branch
+  identifier: trigger_target_branch
+  provider:
+    type: Others
+    title: Third-party Git provider
+    info: Store pipeline in a third party Git provider
+    icon: service-github
+    size: 20
+    disabled: false
+  orgIdentifier: default
+  projectIdentifier: default_project
